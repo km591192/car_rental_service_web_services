@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="total_rent_price">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="c1" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="c2" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="car_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="total_rent_priceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="total_rent_priceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getdateflag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="c1" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="c2" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="car_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getdateflagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getdateflagResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertla">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strstart" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strend" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalprice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cl_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="car_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertlaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insertclient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="n" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="s" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="t" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dl" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertclientResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="returnclientid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="n" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="t" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dl" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="returnclientidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="returnclientidResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectmodel">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectmodelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectmodelResult" type="tns:ArrayOfModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Model" nillable="true" type="tns:Model" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Model">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="classm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="price_per_day" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="color" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="kpp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="producer_id" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectpopcar">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectpopcarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectpopcarResult" type="tns:ArrayOfPopularCar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPopularCar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PopularCar" nillable="true" type="tns:PopularCar" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PopularCar">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Car_id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="how_much_times" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectavailablecar">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectavailablecarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectavailablecarResult" type="tns:ArrayOfAvailableCar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAvailableCar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AvailableCar" nillable="true" type="tns:AvailableCar" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AvailableCar">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Car_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="producer_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="classm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="color" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="kpp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="price_per_day" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectpopandavailablecar">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectpopandavailablecarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectpopandavailablecarResult" type="tns:ArrayOfPopandAvailableCar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPopandAvailableCar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PopandAvailableCar" nillable="true" type="tns:PopandAvailableCar" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PopandAvailableCar">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Car_id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="how_much_times" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="total_rent_priceSoapIn">
+    <wsdl:part name="parameters" element="tns:total_rent_price" />
+  </wsdl:message>
+  <wsdl:message name="total_rent_priceSoapOut">
+    <wsdl:part name="parameters" element="tns:total_rent_priceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getdateflagSoapIn">
+    <wsdl:part name="parameters" element="tns:getdateflag" />
+  </wsdl:message>
+  <wsdl:message name="getdateflagSoapOut">
+    <wsdl:part name="parameters" element="tns:getdateflagResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertlaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertla" />
+  </wsdl:message>
+  <wsdl:message name="insertlaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertlaResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertclientSoapIn">
+    <wsdl:part name="parameters" element="tns:insertclient" />
+  </wsdl:message>
+  <wsdl:message name="insertclientSoapOut">
+    <wsdl:part name="parameters" element="tns:insertclientResponse" />
+  </wsdl:message>
+  <wsdl:message name="returnclientidSoapIn">
+    <wsdl:part name="parameters" element="tns:returnclientid" />
+  </wsdl:message>
+  <wsdl:message name="returnclientidSoapOut">
+    <wsdl:part name="parameters" element="tns:returnclientidResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectmodelSoapIn">
+    <wsdl:part name="parameters" element="tns:selectmodel" />
+  </wsdl:message>
+  <wsdl:message name="selectmodelSoapOut">
+    <wsdl:part name="parameters" element="tns:selectmodelResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectpopcarSoapIn">
+    <wsdl:part name="parameters" element="tns:selectpopcar" />
+  </wsdl:message>
+  <wsdl:message name="selectpopcarSoapOut">
+    <wsdl:part name="parameters" element="tns:selectpopcarResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectavailablecarSoapIn">
+    <wsdl:part name="parameters" element="tns:selectavailablecar" />
+  </wsdl:message>
+  <wsdl:message name="selectavailablecarSoapOut">
+    <wsdl:part name="parameters" element="tns:selectavailablecarResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectpopandavailablecarSoapIn">
+    <wsdl:part name="parameters" element="tns:selectpopandavailablecar" />
+  </wsdl:message>
+  <wsdl:message name="selectpopandavailablecarSoapOut">
+    <wsdl:part name="parameters" element="tns:selectpopandavailablecarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="total_rent_price">
+      <wsdl:input message="tns:total_rent_priceSoapIn" />
+      <wsdl:output message="tns:total_rent_priceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getdateflag">
+      <wsdl:input message="tns:getdateflagSoapIn" />
+      <wsdl:output message="tns:getdateflagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertla">
+      <wsdl:input message="tns:insertlaSoapIn" />
+      <wsdl:output message="tns:insertlaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertclient">
+      <wsdl:input message="tns:insertclientSoapIn" />
+      <wsdl:output message="tns:insertclientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="returnclientid">
+      <wsdl:input message="tns:returnclientidSoapIn" />
+      <wsdl:output message="tns:returnclientidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectmodel">
+      <wsdl:input message="tns:selectmodelSoapIn" />
+      <wsdl:output message="tns:selectmodelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectpopcar">
+      <wsdl:input message="tns:selectpopcarSoapIn" />
+      <wsdl:output message="tns:selectpopcarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectavailablecar">
+      <wsdl:input message="tns:selectavailablecarSoapIn" />
+      <wsdl:output message="tns:selectavailablecarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectpopandavailablecar">
+      <wsdl:input message="tns:selectpopandavailablecarSoapIn" />
+      <wsdl:output message="tns:selectpopandavailablecarSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="total_rent_price">
+      <soap:operation soapAction="http://tempuri.org/total_rent_price" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getdateflag">
+      <soap:operation soapAction="http://tempuri.org/getdateflag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertla">
+      <soap:operation soapAction="http://tempuri.org/insertla" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertclient">
+      <soap:operation soapAction="http://tempuri.org/insertclient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnclientid">
+      <soap:operation soapAction="http://tempuri.org/returnclientid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectmodel">
+      <soap:operation soapAction="http://tempuri.org/selectmodel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectpopcar">
+      <soap:operation soapAction="http://tempuri.org/selectpopcar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectavailablecar">
+      <soap:operation soapAction="http://tempuri.org/selectavailablecar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectpopandavailablecar">
+      <soap:operation soapAction="http://tempuri.org/selectpopandavailablecar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="total_rent_price">
+      <soap12:operation soapAction="http://tempuri.org/total_rent_price" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getdateflag">
+      <soap12:operation soapAction="http://tempuri.org/getdateflag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertla">
+      <soap12:operation soapAction="http://tempuri.org/insertla" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertclient">
+      <soap12:operation soapAction="http://tempuri.org/insertclient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnclientid">
+      <soap12:operation soapAction="http://tempuri.org/returnclientid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectmodel">
+      <soap12:operation soapAction="http://tempuri.org/selectmodel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectpopcar">
+      <soap12:operation soapAction="http://tempuri.org/selectpopcar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectavailablecar">
+      <soap12:operation soapAction="http://tempuri.org/selectavailablecar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectpopandavailablecar">
+      <soap12:operation soapAction="http://tempuri.org/selectpopandavailablecar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="http://localhost:60350/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="http://localhost:60350/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

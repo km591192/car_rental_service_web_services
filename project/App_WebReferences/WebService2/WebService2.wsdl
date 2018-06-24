@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="total_rent_price">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="c1" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="c2" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="car_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="total_rent_priceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="total_rent_priceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteclient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteclientResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insertclient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="n" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="s" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="t" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dl" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertclientResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectClient">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectClientResult" type="tns:ArrayOfClient" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Client" nillable="true" type="tns:Client" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Client">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telephone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dl_num" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="deleteproducer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteproducerResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insertproducer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="n" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertproducerResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectproducer">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectproducerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectproducerResult" type="tns:ArrayOfProducer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProducer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Producer" nillable="true" type="tns:Producer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Producer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="deletecar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deletecarResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insertcar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reg_num" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="model_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertcarResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectcar">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectcarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectcarResult" type="tns:ArrayOfCar" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Car" nillable="true" type="tns:Car" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Car">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="reg_num" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="model_id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectmorecar">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectmorecarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectmorecarResult" type="tns:ArrayOfCar_more" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCar_more">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Car_more" nillable="true" type="tns:Car_more" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Car_more">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Car_id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Model_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="producer_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="kpp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="color" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="deletemodel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deletemodelResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insertmodel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="col" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kpp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="producer" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertmodelResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectmodel">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectmodelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectmodelResult" type="tns:ArrayOfModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Model" nillable="true" type="tns:Model" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Model">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="classm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="price_per_day" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="color" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="kpp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="producer_id" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectTableinTotalPrice">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectTableinTotalPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectTableinTotalPriceResult" type="tns:ArrayOfTableinTotalPrice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTableinTotalPrice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TableinTotalPrice" nillable="true" type="tns:TableinTotalPrice" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TableinTotalPrice">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="price_per_day" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="producer_id" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="total_rent_priceSoapIn">
+    <wsdl:part name="parameters" element="tns:total_rent_price" />
+  </wsdl:message>
+  <wsdl:message name="total_rent_priceSoapOut">
+    <wsdl:part name="parameters" element="tns:total_rent_priceResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteclientSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteclient" />
+  </wsdl:message>
+  <wsdl:message name="deleteclientSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteclientResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertclientSoapIn">
+    <wsdl:part name="parameters" element="tns:insertclient" />
+  </wsdl:message>
+  <wsdl:message name="insertclientSoapOut">
+    <wsdl:part name="parameters" element="tns:insertclientResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectClientSoapIn">
+    <wsdl:part name="parameters" element="tns:selectClient" />
+  </wsdl:message>
+  <wsdl:message name="selectClientSoapOut">
+    <wsdl:part name="parameters" element="tns:selectClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteproducerSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteproducer" />
+  </wsdl:message>
+  <wsdl:message name="deleteproducerSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteproducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertproducerSoapIn">
+    <wsdl:part name="parameters" element="tns:insertproducer" />
+  </wsdl:message>
+  <wsdl:message name="insertproducerSoapOut">
+    <wsdl:part name="parameters" element="tns:insertproducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectproducerSoapIn">
+    <wsdl:part name="parameters" element="tns:selectproducer" />
+  </wsdl:message>
+  <wsdl:message name="selectproducerSoapOut">
+    <wsdl:part name="parameters" element="tns:selectproducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="deletecarSoapIn">
+    <wsdl:part name="parameters" element="tns:deletecar" />
+  </wsdl:message>
+  <wsdl:message name="deletecarSoapOut">
+    <wsdl:part name="parameters" element="tns:deletecarResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertcarSoapIn">
+    <wsdl:part name="parameters" element="tns:insertcar" />
+  </wsdl:message>
+  <wsdl:message name="insertcarSoapOut">
+    <wsdl:part name="parameters" element="tns:insertcarResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectcarSoapIn">
+    <wsdl:part name="parameters" element="tns:selectcar" />
+  </wsdl:message>
+  <wsdl:message name="selectcarSoapOut">
+    <wsdl:part name="parameters" element="tns:selectcarResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectmorecarSoapIn">
+    <wsdl:part name="parameters" element="tns:selectmorecar" />
+  </wsdl:message>
+  <wsdl:message name="selectmorecarSoapOut">
+    <wsdl:part name="parameters" element="tns:selectmorecarResponse" />
+  </wsdl:message>
+  <wsdl:message name="deletemodelSoapIn">
+    <wsdl:part name="parameters" element="tns:deletemodel" />
+  </wsdl:message>
+  <wsdl:message name="deletemodelSoapOut">
+    <wsdl:part name="parameters" element="tns:deletemodelResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertmodelSoapIn">
+    <wsdl:part name="parameters" element="tns:insertmodel" />
+  </wsdl:message>
+  <wsdl:message name="insertmodelSoapOut">
+    <wsdl:part name="parameters" element="tns:insertmodelResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectmodelSoapIn">
+    <wsdl:part name="parameters" element="tns:selectmodel" />
+  </wsdl:message>
+  <wsdl:message name="selectmodelSoapOut">
+    <wsdl:part name="parameters" element="tns:selectmodelResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectTableinTotalPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:selectTableinTotalPrice" />
+  </wsdl:message>
+  <wsdl:message name="selectTableinTotalPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:selectTableinTotalPriceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService2Soap">
+    <wsdl:operation name="total_rent_price">
+      <wsdl:input message="tns:total_rent_priceSoapIn" />
+      <wsdl:output message="tns:total_rent_priceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteclient">
+      <wsdl:input message="tns:deleteclientSoapIn" />
+      <wsdl:output message="tns:deleteclientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertclient">
+      <wsdl:input message="tns:insertclientSoapIn" />
+      <wsdl:output message="tns:insertclientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectClient">
+      <wsdl:input message="tns:selectClientSoapIn" />
+      <wsdl:output message="tns:selectClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteproducer">
+      <wsdl:input message="tns:deleteproducerSoapIn" />
+      <wsdl:output message="tns:deleteproducerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertproducer">
+      <wsdl:input message="tns:insertproducerSoapIn" />
+      <wsdl:output message="tns:insertproducerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectproducer">
+      <wsdl:input message="tns:selectproducerSoapIn" />
+      <wsdl:output message="tns:selectproducerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deletecar">
+      <wsdl:input message="tns:deletecarSoapIn" />
+      <wsdl:output message="tns:deletecarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertcar">
+      <wsdl:input message="tns:insertcarSoapIn" />
+      <wsdl:output message="tns:insertcarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectcar">
+      <wsdl:input message="tns:selectcarSoapIn" />
+      <wsdl:output message="tns:selectcarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectmorecar">
+      <wsdl:input message="tns:selectmorecarSoapIn" />
+      <wsdl:output message="tns:selectmorecarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deletemodel">
+      <wsdl:input message="tns:deletemodelSoapIn" />
+      <wsdl:output message="tns:deletemodelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertmodel">
+      <wsdl:input message="tns:insertmodelSoapIn" />
+      <wsdl:output message="tns:insertmodelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectmodel">
+      <wsdl:input message="tns:selectmodelSoapIn" />
+      <wsdl:output message="tns:selectmodelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectTableinTotalPrice">
+      <wsdl:input message="tns:selectTableinTotalPriceSoapIn" />
+      <wsdl:output message="tns:selectTableinTotalPriceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService2Soap" type="tns:WebService2Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="total_rent_price">
+      <soap:operation soapAction="http://tempuri.org/total_rent_price" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteclient">
+      <soap:operation soapAction="http://tempuri.org/deleteclient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertclient">
+      <soap:operation soapAction="http://tempuri.org/insertclient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectClient">
+      <soap:operation soapAction="http://tempuri.org/selectClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteproducer">
+      <soap:operation soapAction="http://tempuri.org/deleteproducer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertproducer">
+      <soap:operation soapAction="http://tempuri.org/insertproducer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectproducer">
+      <soap:operation soapAction="http://tempuri.org/selectproducer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletecar">
+      <soap:operation soapAction="http://tempuri.org/deletecar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertcar">
+      <soap:operation soapAction="http://tempuri.org/insertcar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectcar">
+      <soap:operation soapAction="http://tempuri.org/selectcar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectmorecar">
+      <soap:operation soapAction="http://tempuri.org/selectmorecar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletemodel">
+      <soap:operation soapAction="http://tempuri.org/deletemodel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertmodel">
+      <soap:operation soapAction="http://tempuri.org/insertmodel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectmodel">
+      <soap:operation soapAction="http://tempuri.org/selectmodel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectTableinTotalPrice">
+      <soap:operation soapAction="http://tempuri.org/selectTableinTotalPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService2Soap12" type="tns:WebService2Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="total_rent_price">
+      <soap12:operation soapAction="http://tempuri.org/total_rent_price" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteclient">
+      <soap12:operation soapAction="http://tempuri.org/deleteclient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertclient">
+      <soap12:operation soapAction="http://tempuri.org/insertclient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectClient">
+      <soap12:operation soapAction="http://tempuri.org/selectClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteproducer">
+      <soap12:operation soapAction="http://tempuri.org/deleteproducer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertproducer">
+      <soap12:operation soapAction="http://tempuri.org/insertproducer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectproducer">
+      <soap12:operation soapAction="http://tempuri.org/selectproducer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletecar">
+      <soap12:operation soapAction="http://tempuri.org/deletecar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertcar">
+      <soap12:operation soapAction="http://tempuri.org/insertcar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectcar">
+      <soap12:operation soapAction="http://tempuri.org/selectcar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectmorecar">
+      <soap12:operation soapAction="http://tempuri.org/selectmorecar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletemodel">
+      <soap12:operation soapAction="http://tempuri.org/deletemodel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertmodel">
+      <soap12:operation soapAction="http://tempuri.org/insertmodel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectmodel">
+      <soap12:operation soapAction="http://tempuri.org/selectmodel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectTableinTotalPrice">
+      <soap12:operation soapAction="http://tempuri.org/selectTableinTotalPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService2">
+    <wsdl:port name="WebService2Soap" binding="tns:WebService2Soap">
+      <soap:address location="http://localhost:57015/WebService2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService2Soap12" binding="tns:WebService2Soap12">
+      <soap12:address location="http://localhost:57015/WebService2.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
